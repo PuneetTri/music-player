@@ -89,6 +89,24 @@ main {
 
 .left-panel .center-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.left-panel .center-content .playlist-new {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: #98f576;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  border: 2px solid #111;
+  margin-top: 2rem;
 }
 
 .left-panel .player-container {
@@ -154,29 +172,13 @@ main {
 .left-panel .player-container .song-details .player-options #slider {
   height: 0.25rem;
   width: 100%;
-  background: #424242; /* Set the normal background color */
+  background: #424242;
   border-radius: 0.25rem;
   cursor: pointer;
   margin-bottom: 0.5rem;
-}
-
-.left-panel
-  .player-container
-  .song-details
-  .player-options
-  #slider::-webkit-slider-thumb {
-  background: #98f576; /* Set the completed part background color */
-  width: 30px;
-  height: 30px;
-  border-radius: 100%;
-}
-
-.left-panel
-  .player-container
-  .song-details
-  .player-options
-  #slider::-ms-fill-lower {
-  background: #98f576; /* Set the completed part background color for Edge browser */
+  accent-color: #98f576;
+  border: none;
+  outline: none;
 }
 
 .left-panel
@@ -229,6 +231,7 @@ main {
   height: 25%;
   margin: 0.25rem 0.35rem;
   border-radius: 0.25rem;
+  transition: opacity 0.3s ease;
 }
 
 .right-panel {
@@ -240,11 +243,15 @@ main {
 .right-panel .album-art {
   width: 100%;
   height: 54vh;
-  background-color: gray;
   border-radius: 1rem;
-  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZSNf206HNWbZ0D2aawrFJPBDQT5gKcSZA9tr9JLxfqA7iv0leEsOXqbOU-s4vrxabZtk&usqp=CAU);
-  background: rgb(1, 33, 21);
-  background: linear-gradient(45deg, rgb(0, 0, 0) 46%, rgba(4, 83, 52, 1) 88%);
+  background-image: linear-gradient(
+      to top right,
+      rgba(0, 0, 0, 1),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("https://static.qobuz.com/images/covers/5b/ic/igkvg4y9cic5b_600.jpg");
+
+  background-size: cover;
   display: flex;
   flex-direction: column;
   box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.5);
@@ -258,14 +265,29 @@ main {
 .right-panel .album-art .common {
   margin-top: 20px;
   height: 25px;
-  width: 60px;
   border: 1px solid white;
-  border-radius: 10px;
+  border-radius: 1rem;
   color: white;
-  margin-left: 10px;
+  margin-left: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
+}
+
+.right-panel .album-art .album-genre-btn {
+  background-color: transparent;
+  color: white;
+  border: none;
+  margin-top: 20px;
+  height: 25px;
+  border-radius: 1rem;
+  margin-left: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  flex-direction: row;
 }
 .right-panel .album-art .fns {
   margin-top: 100px;
@@ -288,9 +310,10 @@ main {
   font-weight: lighter;
   height: 30px;
   width: 30px;
-  background-color: green;
+  background-color: #98f576;
   border-radius: 50%;
   margin-left: 120px;
+  color: black;
 }
 .arrow:hover {
   border: 1px solid black;
@@ -338,11 +361,16 @@ main {
 }
 .a1 .play {
   height: 25px;
-  border: 1px solid green;
-  border-radius: 10px;
+  border: 1px solid #98f576;
+  border-radius: 1rem;
   width: 50px;
   text-align: center;
-  background-color: green;
+  background-color: #98f576;
+  color: black;
+  font-weight: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .top-chart .tate {
   margin-left: 20px;
@@ -376,4 +404,40 @@ main {
 hr {
   width: 80%;
   margin-left: 20px;
+}
+
+@media (max-width: 1024px) {
+  .right-panel {
+    display: none;
+  }
+  .left-panel {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-panel .player-container .song-frequency {
+    display: none;
+  }
+
+  .left-panel .player-container .song-details {
+    width: 100%;
+  }
+}
+
+@media (max-width: 596px) {
+  .left-panel nav {
+    flex-direction: column-reverse;
+  }
+
+  .left-panel nav .button-group {
+    width: 100%;
+    margin-top: 1rem;
+    /* align items within the button group into center */
+    justify-content: center;
+  }
+
+  .left-panel nav .button-extra {
+    flex-direction: row-reverse;
+  }
 }
