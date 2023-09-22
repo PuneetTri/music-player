@@ -48,9 +48,11 @@
             </div>
 
             <div class="player-options">
-              <div class="slider">
-                <div class="filled"></div>
-              </div>
+              <audio
+                id="audio-player"
+                src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+              ></audio>
+              <input type="range" value="0" id="slider" />
 
               <div class="player-options-btns">
                 <button>
@@ -59,7 +61,7 @@
                 <button>
                   <i class="ri-skip-back-fill"></i>
                 </button>
-                <button class="play-btn">
+                <button id="play-pause-btn" class="play-btn">
                   <i class="ri-play-fill"></i>
                 </button>
                 <button>
@@ -133,9 +135,75 @@
 
       <!-- Right side grid -->
       <div class="right-panel">
-        <div class="album-art"></div>
-        <div class="top-chart"></div>
+        <div class="album-art">
+          <div class="at">
+            <div class="funk common">Funk</div>
+            <div class="soul common">Soul</div>
+            <div class="classic common">Classic</div>
+          </div>
+          <div class="fns">
+            <h1>
+              Funk &<br />
+              Soul
+            </h1>
+          </div>
+          <div class="tracks">
+            <i class="ri-folder-music-line">111 tracks </i>
+            <i class="ri-timer-line">302.48 min</i>
+            <div class="arrow"><i class="ri-arrow-right-up-line"></i></div>
+          </div>
+        </div>
+        <div class="top-chart">
+          <div class="top">
+            <h3>Today's Top hits</h3>
+            <div class="a1">
+              <div class="play">play</div>
+              <div class="arr1">
+                <i class="ri-arrow-left-down-line arr"></i>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class="tate">
+            <p><i class="ri-folder-music-line"></i> 10:35- Arijit Singh</p>
+            <div class="dots">
+              <div class="im">
+                <img
+                  src="https://images.unsplash.com/photo-1482618606784-2ca7968c062e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNpbmdlciUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                />
+              </div>
+              <i class="ri-menu-5-fill"></i>
+            </div>
+          </div>
+          <hr />
+
+          <div class="tate">
+            <p><i class="ri-folder-music-line"></i> Khudaaa - Mithoon</p>
+            <div class="dots">
+              <div class="im">
+                <img
+                  src="https://images.unsplash.com/photo-1468141589425-dcddef77ddad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fHNpbmdlciUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                />
+              </div>
+              <i class="ri-menu-5-fill"></i>
+            </div>
+          </div>
+          <hr />
+
+          <div class="tate">
+            <p><i class="ri-folder-music-line"></i> Tere Bin - Shreya gh</p>
+            <div class="dots">
+              <div class="im">
+                <img
+                  src="https://images.unsplash.com/photo-1610593058335-3513a303af56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHNpbmdlciUyMGltYWdlfGVufDB8fDB8fHww&auto=format&fit=crop&w=600&q=60"
+                />
+              </div>
+              <i class="ri-menu-5-fill"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
+    <script src="./js/player.js"></script>
   </body>
 </html>
